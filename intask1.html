@@ -6,6 +6,106 @@
         
         <title>SAARS</title> 
         <link rel="stylesheet" href="intask1.css" /> 
+        <style>
+            
+/* Reset and base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    
+     background-image: url("gr.jpg") ;
+    color: rgb(37, 55, 58);
+  }
+  
+  
+  /* Navbar */
+  #navbar {
+     padding: 1px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-image: url("gr.jpg") ;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 999;
+  }
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: rgb(14, 13, 13);
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  .nav-links a:hover {
+    background-color:  rgb(37, 55, 58);
+    color: #f9f9f9;
+  }
+  .nav-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 10%;
+    image-rendering: crisp-edges;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Scroll effect */
+  .scrolled {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 0;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      background-color: #1e1e1e;
+      position: absolute;
+      top: 70px;
+      right: 40px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+        </style>
     </head> 
     <body> 
         <header id="navbar"> 
@@ -42,3 +142,4 @@ window.addEventListener('scroll', function () {
     </body> 
 
     </html>
+
