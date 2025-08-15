@@ -15,7 +15,7 @@
   /* Navbar */
   #navbar {
      padding: 1px;
-    position: fixed;
+    position: flex;
     top: 0;
     width: 100%;
     background-image: url("gr.jpg") ;
@@ -94,3 +94,4 @@
       padding: 10px;
       border-radius: 8px;
     }
+
