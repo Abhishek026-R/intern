@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do Web App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="datetime-local"] {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 1em;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #f9f9f9;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-left: 5px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    li.completed {
+      text-decoration: line-through;
+      color: #888;
+      border-left-color: green;
+    }
+
+    .task-info {
+      flex: 1;
+    }
+
+    .task-actions button {
+      margin-left: 5px;
+      background-color: #007bff;
+    }
+
+    .task-actions button.complete {
+      background-color: green;
+    }
+
+    .task-actions button.delete {
+      background-color: red;
+    }
+
+    .task-actions button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SAARS</h1>
+    <p>This is to assign the task</p>
+    <form id="task-form">
+      <input type="text" id="task-input" placeholder="Enter task" required />
+      <input type="datetime-local" id="task-date" required />
+      <button type="submit">Add Task</button>
+    </form>
+    <ul id="task-list"></ul>
+  </div>
+
+  <script>
+    const form = document.getElementById('task-form');
+    const taskInput = document.getElementById('task-input');
+    const taskDate = document.getElementById('task-date');
+    const taskList = document.getElementById('task-list');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      addTask(taskInput.value, taskDate.value);
+      form.reset();
+    });
+
+    function addTask(text, dateTime) {
+      const li = document.createElement('li');
+
+      const info = document.createElement('div');
+      info.className = 'task-info';
+      info.innerHTML = `<strong>${text}</strong><br><small>${dateTime}</small>`;
+
+      const actions = document.createElement('div');
+      actions.className = 'task-actions';
+
+      const completeBtn = document.createElement('button');
+      completeBtn.textContent = 'Complete';
+      completeBtn.className = 'complete';
+      completeBtn.onclick = () => li.classList.toggle('completed');
+
+      const editBtn = document.createElement('button');
+      editBtn.textContent = 'Edit';
+      editBtn.onclick = () => {
+        taskInput.value = text;
+        taskDate.value = dateTime;
+        li.remove();
+      };
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.className = 'delete';
+      deleteBtn.onclick = () => li.remove();
+
+      actions.appendChild(completeBtn);
+      actions.appendChild(editBtn);
+      actions.appendChild(deleteBtn);
+
+      li.appendChild(info);
+      li.appendChild(actions);
+      taskList.appendChild(li);
+    }
+  </script>
+</body>
+</html>
