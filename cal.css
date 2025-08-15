@@ -1,0 +1,73 @@
+/* General page styling */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f2f5;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+}
+
+/* Calculator container */
+.calculator {
+  width: 320px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Display screen */
+#display {
+  width: 100%;
+  height: 50px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: right;
+  padding: 0 10px;
+  border: none;
+  background: #eee;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Button grid layout */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Buttons appearance */
+button {
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  background: #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Hover effect for buttons */
+button:hover {
+  background: #d0d0d0;
+}
+
+/* Optional: operator buttons with subtle color */
+button:nth-child(3),
+button:nth-child(4),
+button:nth-child(8),
+button:nth-child(12),
+button:nth-child(16) {
+  background: #ffd36d;
+}
+
+button:nth-child(3):hover,
+button:nth-child(4):hover,
+button:nth-child(8):hover,
+button:nth-child(12):hover,
+button:nth-child(16):hover {
+  background: #ffc947;
+}
