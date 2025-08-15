@@ -55,7 +55,7 @@
     border-radius: 10%;
     image-rendering: crisp-edges;
     display: flex;
-    justify-content: center;
+    justify-content: left;
   }
   
   /* Scroll effect */
@@ -94,4 +94,5 @@
       padding: 10px;
       border-radius: 8px;
     }
+
 
